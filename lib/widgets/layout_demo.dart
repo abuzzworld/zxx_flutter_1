@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:zxx_flutter_1/widgets/container_demo.dart';
 
 class LayoutDemo extends StatelessWidget {
   const LayoutDemo({Key? key}) : super(key: key);
@@ -12,7 +13,90 @@ class LayoutDemo extends StatelessWidget {
       ),
       body: Container(
         color: Colors.grey,
-        child: WarpDemo(),
+        child: ContainerDemo(),
+      ),
+    );
+  }
+}
+
+// 边距
+class EdgeDemo extends StatelessWidget {
+  const EdgeDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 100,
+      color: Colors.red,
+      // 外边距-距离父组件
+      // margin: EdgeInsets.all(10),
+      margin: EdgeInsets.only(left: 10, top: 10),
+      // 内边距-距离子组件
+      padding: EdgeInsets.all(10),
+      child: Text("text"),
+    );
+  }
+}
+
+// 相对定位
+class AlignDemo extends StatelessWidget {
+  const AlignDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(90),
+      width: 200,
+      height: 200,
+      color: Colors.green,
+      child: Align(
+        // 相对父组件定位
+        // alignment: Alignment.bottomCenter,
+        alignment: Alignment(0, -0.8),
+        child: FlutterLogo(
+          size: 60,
+        ),
+      ),
+    );
+  }
+}
+
+// 层叠布局
+class StackDemo extends StatelessWidget {
+  const StackDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.grey,
+      child: Stack(
+        fit: StackFit.expand,
+        alignment: AlignmentDirectional.center,
+        children: [
+          Container(
+            color: Colors.green,
+            width: 100,
+            height: 100,
+          ),
+          Container(
+            color: Colors.red,
+            width: 50,
+            height: 50,
+          ),
+          Positioned(
+              top: 50,
+              left: 50,
+              right: 10,
+              // width: 200,
+              height: 200,
+              child: Container(
+                color: Colors.yellow,
+                // width: 250,
+                // height: 250,
+              ))
+        ],
       ),
     );
   }
