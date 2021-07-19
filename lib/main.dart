@@ -1,9 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:zxx_flutter_1/widgets/alertdialog_demo.dart';
 import 'package:zxx_flutter_1/widgets/bottom_navigator.dart';
 import 'package:zxx_flutter_1/widgets/demo_01.dart';
 import 'package:zxx_flutter_1/widgets/demo_02.dart';
+import 'package:zxx_flutter_1/widgets/girdview_demo.dart';
 import 'package:zxx_flutter_1/widgets/layout_demo.dart';
 import 'package:zxx_flutter_1/widgets/listview_demo.dart';
 import 'package:zxx_flutter_1/widgets/page_demo.dart';
@@ -29,10 +31,12 @@ class MyApp extends StatelessWidget {
         "page": (context) => PageDemo(),
         "bottomNavi": (context) => BottomNavigatorBarDemo(),
         "listView": (context) => ListViewDemo(),
+        "girdview": (context) => GirdviewDemo(),
+        "alergdialog": (context) => AlertDialogDemo(),
         // "menu": (context) => MenuPage(),
       },
       // initialRoute: "layout", // (初始路由)重置主页
-      initialRoute: "listView", // (初始路由)重置主页
+      initialRoute: "alergdialog", // (初始路由)重置主页
 
       // 路由拦截
       onGenerateRoute: (settings) {
