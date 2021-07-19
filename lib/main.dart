@@ -9,6 +9,7 @@ import 'package:zxx_flutter_1/widgets/girdview_demo.dart';
 import 'package:zxx_flutter_1/widgets/layout_demo.dart';
 import 'package:zxx_flutter_1/widgets/listview_demo.dart';
 import 'package:zxx_flutter_1/widgets/page_demo.dart';
+import 'package:zxx_flutter_1/widgets/table_demo.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,10 +34,11 @@ class MyApp extends StatelessWidget {
         "listView": (context) => ListViewDemo(),
         "girdview": (context) => GirdviewDemo(),
         "alergdialog": (context) => AlertDialogDemo(),
+        "table": (context) => TableDemo(),
         // "menu": (context) => MenuPage(),
       },
       // initialRoute: "layout", // (初始路由)重置主页
-      initialRoute: "alergdialog", // (初始路由)重置主页
+      initialRoute: "table", // (初始路由)重置主页
 
       // 路由拦截
       onGenerateRoute: (settings) {
