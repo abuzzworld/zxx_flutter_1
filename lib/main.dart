@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:zxx_flutter_1/provider/CountProvider.dart';
 import 'package:zxx_flutter_1/widgets/alertdialog_demo.dart';
 import 'package:zxx_flutter_1/widgets/bottom_navigator.dart';
 import 'package:zxx_flutter_1/widgets/card_demo.dart';
@@ -11,10 +12,24 @@ import 'package:zxx_flutter_1/widgets/girdview_demo.dart';
 import 'package:zxx_flutter_1/widgets/layout_demo.dart';
 import 'package:zxx_flutter_1/widgets/listview_demo.dart';
 import 'package:zxx_flutter_1/widgets/page_demo.dart';
+import 'package:zxx_flutter_1/widgets/provider_demo.dart';
 import 'package:zxx_flutter_1/widgets/table_demo.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => CountProvider(),
+      ),
+    ],
+    child: MyApp(),
+  ));
+  // 只能返回一个 Provider
+  // runApp(ChangeNotifierProvider(
+  //   create: (context) => CountProvider(),
+  //   child: MyApp(),
+  // ));
 }
 
 class MyApp extends StatelessWidget {
@@ -39,10 +54,12 @@ class MyApp extends StatelessWidget {
         "table": (context) => TableDemo(),
         "card": (context) => CardDemo(),
         "demo05": (context) => Demo05(),
+        "provider": (context) => ProviderDemo(),
+        "providertwo": (context) => ProviderDemoTwo(),
         // "menu": (context) => MenuPage(),
       },
       // initialRoute: "layout", // (初始路由)重置主页
-      initialRoute: "demo05", // (初始路由)重置主页
+      initialRoute: "provider", // (初始路由)重置主页
 
       // 路由拦截
       onGenerateRoute: (settings) {

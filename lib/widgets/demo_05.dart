@@ -46,14 +46,14 @@ class CountDemo extends StatefulWidget {
 }
 
 class _CountDemoState extends State<CountDemo> {
-  var count = 0;
+  var _count = 0;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Text(count.toString()),
+      child: Text(_count.toString()),
       onTap: () {
         setState(() {
-          count++;
+          _count++;
         });
       },
     );
