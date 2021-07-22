@@ -23,11 +23,11 @@ class _DioDemoState extends State<DioDemo> {
       appBar: AppBar(title: Text("dio")),
       body: Column(
         children: [
-          RaisedButton(
+          ElevatedButton(
             onPressed: _get,
             child: Text("Get"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: _post,
             child: Text("Post"),
           )

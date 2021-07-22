@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:zxx_flutter_1/provider/CountProvider.dart';
+import 'package:zxx_flutter_1/view/mvvm_demo_view.dart';
+import 'package:zxx_flutter_1/viewmodel/mvvm_demo_viewmodel.dart';
 import 'package:zxx_flutter_1/widgets/alertdialog_demo.dart';
 import 'package:zxx_flutter_1/widgets/bottom_navigator.dart';
 import 'package:zxx_flutter_1/widgets/card_demo.dart';
@@ -23,6 +25,9 @@ void main() {
       ChangeNotifierProvider(
         create: (context) => CountProvider(),
       ),
+      ChangeNotifierProvider(
+        create: (context) => MvvmDemoViewModel(),
+      ),
     ],
     child: MyApp(),
   ));
@@ -33,12 +38,15 @@ void main() {
   // ));
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         primaryColor: Colors.yellow,
       ),
@@ -58,10 +66,11 @@ class MyApp extends StatelessWidget {
         "provider": (context) => ProviderDemo(),
         "providertwo": (context) => ProviderDemoTwo(),
         "dio": (context) => DioDemo(),
+        "mvvm": (context) => MvvmDemoView(),
         // "menu": (context) => MenuPage(),
       },
       // initialRoute: "layout", // (初始路由)重置主页
-      initialRoute: "dio", // (初始路由)重置主页
+      initialRoute: "mvvm", // (初始路由)重置主页
 
       // 路由拦截
       onGenerateRoute: (settings) {
