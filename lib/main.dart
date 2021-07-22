@@ -8,6 +8,7 @@ import 'package:zxx_flutter_1/widgets/card_demo.dart';
 import 'package:zxx_flutter_1/widgets/demo_01.dart';
 import 'package:zxx_flutter_1/widgets/demo_02.dart';
 import 'package:zxx_flutter_1/widgets/demo_05.dart';
+import 'package:zxx_flutter_1/widgets/dio_demo.dart';
 import 'package:zxx_flutter_1/widgets/girdview_demo.dart';
 import 'package:zxx_flutter_1/widgets/layout_demo.dart';
 import 'package:zxx_flutter_1/widgets/listview_demo.dart';
@@ -56,10 +57,11 @@ class MyApp extends StatelessWidget {
         "demo05": (context) => Demo05(),
         "provider": (context) => ProviderDemo(),
         "providertwo": (context) => ProviderDemoTwo(),
+        "dio": (context) => DioDemo(),
         // "menu": (context) => MenuPage(),
       },
       // initialRoute: "layout", // (初始路由)重置主页
-      initialRoute: "provider", // (初始路由)重置主页
+      initialRoute: "dio", // (初始路由)重置主页
 
       // 路由拦截
       onGenerateRoute: (settings) {
