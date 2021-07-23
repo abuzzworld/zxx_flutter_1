@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
         // "menu": (context) => MenuPage(),
       },
       // initialRoute: "layout", // (初始路由)重置主页
-      initialRoute: "mvvm", // (初始路由)重置主页
+      initialRoute: "dio", // (初始路由)重置主页
 
       // 路由拦截
       onGenerateRoute: (settings) {

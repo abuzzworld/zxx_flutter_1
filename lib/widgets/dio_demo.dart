@@ -15,6 +15,8 @@ class _DioDemoState extends State<DioDemo> {
   void initState() {
     super.initState();
     _dio.options.baseUrl = "http://api.td0f7.cn:8083/";
+    // 超时：单位 毫秒
+    _dio.options.connectTimeout = 1000;
   }
 
   @override
@@ -30,10 +32,31 @@ class _DioDemoState extends State<DioDemo> {
           ElevatedButton(
             onPressed: _post,
             child: Text("Post"),
+          ),
+          ElevatedButton(
+            onPressed: _try,
+            child: Text("Tty Catch"),
           )
         ],
       ),
     );
+  }
+
+  void _try() async {
+    try {
+      print("object");
+      dynamic result = await _dio.get("/dio/dio/time");
+      print(result);
+      throw "测试异常";
+    } on DioError {
+      // 可以指定错误类型
+      print("object   dio error");
+    } on String {
+      print("object   string");
+    } catch (e) {
+      print(e.toString());
+      print(e.runtimeType);
+    }
   }
 
   void _post() async {
